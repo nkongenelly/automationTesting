@@ -1,0 +1,16 @@
+class Locators():
+    # Login page objects
+    email_field_id = "form-signin-email"
+    pass_field_id = "form-signin-password"
+    login_button_xpath = "//*[@id='formLogin']/button"
+    namaste_logo_xpath = "//*[@id='mainLogo']"
+
+    #mysite page objects
+    instagram_textbox_id = "instagram"
+    facebook_textbox_id = "facebook"
+    youtube_textbox_id = "youtube"
+    website_textbox_id = "website"
+    publish_button_xpath = '//*[@id="customForm"]/form/div/div[6]/div/div/button'
+
+    # Landing page objects
+    mysite_button_id = "mySite"
