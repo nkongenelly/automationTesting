@@ -13,16 +13,18 @@ class LandingPage():
         self.driver = driver
         self.mysite_button = Locators.mysite_button_id
         self.successful_login_indicator = Locators.successful_login_indicator_id
-        self.signout_button = Locators.signout_button_id
+        self.signout_button = Locators.signout_button_xpath
 
     def clickMysite(self):
         WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.ID, self.mysite_button)))
         self.driver.find_element_by_id(self.mysite_button).click()
 
     def isLoginSuccessful(self):
-        elements = self.driver.find_elements(By.ID,self.successful_login_indicator)
-        print(elements)
-        return len(elements) != 0
+        try:
+            self.driver.find_element_by_id(self.signout_button)
+        except Exception:
+            return False
+        return True
 
     def signOut(self):
         WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.ID, self.signout_button)))

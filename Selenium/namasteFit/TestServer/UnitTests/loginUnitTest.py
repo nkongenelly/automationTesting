@@ -3,8 +3,9 @@ import unittest
 import HTMLTestRunner
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(__file__), "...", "..."))
+import time
 import namasteFit.CommonFiles.excelUtils as XUtils
+sys.path.append(os.path.join(os.path.dirname(__file__), "...", "..."))
 from namasteFit.TestServer.Pages.loginPage import LoginPage
 from namasteFit.TestServer.Pages.landingPage import LandingPage
 from namasteFit.TestServer.Pages.mysitePage import MySitePage
@@ -31,19 +32,28 @@ class LoginUnitTest(unittest.TestCase):
         for r in range(2,rows + 1):
             namaste_username = XUtils.readData(path, 0, r, 1)
             namaste_password = XUtils.readData(path, 0, r, 2)
+            print(namaste_username + "    ,   " + namaste_password)
 
             loginpage.enterEmail(namaste_username)
+            time.sleep(2)
             loginpage.enterPassword(namaste_password)
             loginpage.clickLogin()
+            print("isLogginSuccessful = " )
+            print(landingpage.isLoginSuccessful())
 
+            time.sleep(3)
             if landingpage.isLoginSuccessful():
                 XUtils.writeData(path, 0, r, 5, "PASS")
                 landingpage.signOut()
                 print("Login Successful")
+                time.sleep(1)
 
-            else:
+            elif not landingpage.isLoginSuccessful():
                 XUtils.writeData(path, 0, r, 5, "FAIL")
                 print("Login Failed")
+                time.sleep(1)
+
+        # time.sleep(2)
 
 
     @classmethod
