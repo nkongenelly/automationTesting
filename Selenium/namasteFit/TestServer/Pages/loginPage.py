@@ -15,6 +15,7 @@ class LoginPage():
         self.pass_field = Locators.pass_field_id
         self.login_button = Locators.login_button_xpath
 
+
     def enterEmail(self, email):
         WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.ID, self.email_field)))
         self.driver.find_element_by_id(self.email_field).clear()
@@ -28,3 +29,4 @@ class LoginPage():
     def clickLogin(self):
         WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.login_button)))
         self.driver.find_element_by_xpath(self.login_button).click()
+

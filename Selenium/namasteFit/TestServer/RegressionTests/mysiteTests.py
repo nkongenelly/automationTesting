@@ -10,6 +10,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "...", "..."))
 from namasteFit.TestServer.Pages.mysitePage import MySitePage
 from namasteFit.TestServer.Pages.loginPage import LoginPage
 from namasteFit.TestServer.Pages.landingPage import LandingPage
+from namasteFit.TestServer.Locators.locators import Locators
 from selenium import webdriver
 
 
@@ -19,7 +20,7 @@ class MySiteTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.driver = webdriver.Safari(executable_path='/usr/bin/safaridriver')
-        cls.driver.get("http://app.raawmove.com/mysite")
+        cls.driver.get(Locators.testServer +"login")
         cls.driver.maximize_window()
         return cls.driver
 

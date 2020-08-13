@@ -26,3 +26,6 @@ class MySitePage:
     def clickPublishPage(self):
         WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.publish_button)))
         self.driver.find_element_by_xpath(self.publish_button).click()
+
+
+
