@@ -16,7 +16,7 @@ class Locators():
     # Google sheet
     scope = ["https://www.googleapis.com/auth/drive"]
     # credentials = "google_sheets_credentials.json"
-    credentials = "E://AutomationTesting//Selenium//namasteFit\TestServer//UnitTests//google_sheets_credentials.json"
+    credentials = "C://Users//MB210-A30//Documents//Nelly//namaste//google_sheets_credentials.json"
     credentials_oauth = "google_sheets_oauth.json"
     userStoriesTestCases = "userStoriesTestCases"
 
