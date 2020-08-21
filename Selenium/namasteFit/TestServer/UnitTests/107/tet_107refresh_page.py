@@ -73,11 +73,11 @@ class LoginUnitTest(unittest.TestCase):
             try:
                 self.assertEqual(url, driver.current_url, "The page should return to " + url)
                 TestResults = "PASS"
-                sheetsUtils.write_results(TestResults, browser["webdriver"], user_story)
+                sheetsUtils.write_results(TestResults, browser["executable_path"], user_story)
 
             except Exception:
                 TestResults = "FAIL"
-                sheetsUtils.write_results(TestResults, browser["webdriver"], user_story)
+                sheetsUtils.write_results(TestResults, browser["executable_path"], user_story)
 
             driver.close()
 
