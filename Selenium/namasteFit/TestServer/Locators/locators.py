@@ -37,4 +37,14 @@ class Locators():
 
     # Landing page objects
     mysite_button_id = "mySite"
+    mysite_button_text = "My Site"
     get_started_text_xpath = "/html/div/div[2]/div/div[1]/h4"
+    get_started_text_text = "Get Started"
+    customize_my_site_button_xpath = '//*[@id="siteCustomize"]/div/div[2]/h4'
+    customize_my_site_button_text = 'Customize your site'
+    setup_events_button_xpath ='//*[@id="eventsSetup"]/div/div[2]/h4'
+    setup_events_button_text ='Setup Events'
+    my_events_button_id = "overview"
+    my_events_button_text = "My Events"
+    members_button_id = "members"
+    members_button_text = "Members"

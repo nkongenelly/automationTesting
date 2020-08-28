@@ -1,11 +1,13 @@
+import time
+import unittest
+# import HTMLTestRunner
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-import time
-import unittest
-#import HTMLTestRunner
 from namasteFit.TestServer.Locators.locators import Locators
+
+# global driver
 
 
 class LoginTest(unittest.TestCase):
@@ -27,7 +29,8 @@ class LoginTest(unittest.TestCase):
 
         email_field_element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, email_field_id)))
         pass_field_element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, pass_field_id)))
-        login_button_element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, login_button_xpath)))
+        login_button_element = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, login_button_xpath)))
 
         email_field_element.clear()
         email_field_element.send_keys(namaste_username)
@@ -37,6 +40,7 @@ class LoginTest(unittest.TestCase):
 
         login_button_element.click()
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, namaste_logo_xpath)))
+        return driver
 
     # def tear_down(self):
     #     self.driver.close()
@@ -44,5 +48,3 @@ class LoginTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-
