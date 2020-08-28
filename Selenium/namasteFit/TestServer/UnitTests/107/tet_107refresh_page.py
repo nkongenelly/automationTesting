@@ -40,13 +40,13 @@ class LoginUnitTest(unittest.TestCase):
             self.driver.maximize_window()
             driver = self.driver
             driver.set_script_timeout(60)
-            namaste_username = "nelly@namaste.fit"
-            namaste_password = "qwertyui"
+            namaste_username = Locators.namaste_username
+            namaste_password = Locators.namaste_password
 
-            email_field_id = "form-signin-email"
-            pass_field_id = "form-signin-password"
-            login_button_xpath = "//*[@id='formLogin']/button"
-            namaste_logo_xpath = "//*[@id='mainLogo']"
+            email_field_id = Locators.email_field_id
+            pass_field_id = Locators.pass_field_id
+            login_button_xpath = Locators.login_button_xpath
+            namaste_logo_xpath = Locators.namaste_logo_xpath
 
             email_field_element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, email_field_id)))
             pass_field_element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, pass_field_id)))
@@ -73,11 +73,11 @@ class LoginUnitTest(unittest.TestCase):
             try:
                 self.assertEqual(url, driver.current_url, "The page should return to " + url)
                 TestResults = "PASS"
-                sheetsUtils.write_results(TestResults, browser["executable_path"], user_story)
+                # sheetsUtils.write_results(TestResults, browser["executable_path"], user_story)
 
             except Exception:
                 TestResults = "FAIL"
-                sheetsUtils.write_results(TestResults, browser["executable_path"], user_story)
+                # sheetsUtils.write_results(TestResults, browser["executable_path"], user_story)
 
             driver.close()
 

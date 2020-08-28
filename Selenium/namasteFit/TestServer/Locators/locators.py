@@ -27,6 +27,9 @@ class Locators():
     namaste_logo_xpath = "//*[@id='mainLogo']"
     successful_login_indicator_id = "getStarted"
     signout_button_xpath = "signOut"
+    # valid login
+    namaste_username = "nelly@namaste.fit"
+    namaste_password = "qwertyui"
 
     #mysite page objects
     instagram_textbox_id = "instagram"
