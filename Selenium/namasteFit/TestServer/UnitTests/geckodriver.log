@@ -994,10 +994,15 @@ JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable co
 JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
 JavaScript warning: http://app.raawmove.com/main.dart.js line 605 > Function, line 3: unreachable code after return statement
 JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
-JavaScript warning: http://app.raawmove.com/main.dart.js lin1598609796834	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\MB210-~1\\AppData\\Local\\Temp\\rust_mozprofileFJcub3"
-JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
-console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
-1598609799456	Marionette	INFO	Listening on port 57035
+JavaScript warning: http://app.raawmove.com/main.dart.js lin1598609796834	mozrunner::runner	INFO	Running command: "C:\\Program [Parent 7576, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1598610473679	Marionette	INFO	Stopped listening on port 56955
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+6	Marionette	INFO	Listening on port 57035
 1598609799950	Marionette	WARN	TLS certificate errors will be ignored for this session
 console.error: Region.jsm: "Error fetching region" (new AbortError("The operation was aborted. ", (void 0), 689))
 console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 343))
@@ -1043,6 +1048,71 @@ JavaScript error: http://app.raawmove.com/main.dart.js, line 440: : Bad state: N
 JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
 JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
 1598609862641	Marionette	INFO	Stopped listening on port 57035
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1598610319783	geckodriver	INFO	Listening on 127.0.0.1:57499
+1598610322829	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\MB210-~1\\AppData\\Local\\Temp\\rust_mozprofileGowqug"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1598610325454	Marionette	INFO	Listening on port 57509
+1598610325941	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 605 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 605 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 605 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+[Parent 7424, Gecko_IOThread] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc, line 166
+1598610474576	Marionette	INFO	Stopped listening on port 57509
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+ory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1598610347983	Marionette	INFO	Listening on port 57584
+1598610348242	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 605 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 605 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 605 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+1598610475310	Marionette	INFO	Stopped listening on port 57584
 
 ###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 

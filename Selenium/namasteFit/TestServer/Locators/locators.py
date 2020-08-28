@@ -31,13 +31,6 @@ class Locators():
     namaste_username = "nelly@namaste.fit"
     namaste_password = "qwertyui"
 
-    #mysite page objects
-    instagram_textbox_id = "instagram"
-    facebook_textbox_id = "facebook"
-    youtube_textbox_id = "youtube"
-    website_textbox_id = "website"
-    publish_button_xpath = '//*[@id="customForm"]/form/div/div[6]/div/div/button'
-
     # Landing page objects
     mysite_button_id = "mySite"
     mysite_button_text = "My Site"
@@ -51,3 +44,17 @@ class Locators():
     my_events_button_text = "My Events"
     members_button_id = "members"
     members_button_text = "Members"
+
+    # My site page
+    my_site_page_text_xpath = '//*[@id="page-content-wrapper"]/div/div[1]/h4'
+    preview_button_id = "previewDomain"
+    studio_name_id = "name"
+    studio_description_id = "about"
+    city_field_id = "city"
+    state_field_id = "state"
+    country_state_id = "country"
+    instagram_textbox_id = "instagram"
+    facebook_textbox_id = "facebook"
+    youtube_textbox_id = "youtube"
+    website_textbox_id = "website"
+    publish_button_xpath = '//*[@id="customForm"]/form/div/div[6]/div/div/button'
