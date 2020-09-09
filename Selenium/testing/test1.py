@@ -4,7 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import time
 import unittest
-import HTMLTestRunner
+# import HTMLTestRunner
 
 
 class LoginTest(unittest.TestCase):
