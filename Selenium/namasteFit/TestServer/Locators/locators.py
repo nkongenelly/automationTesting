@@ -3,7 +3,7 @@ class Locators():
     # platform
     testServer = "http://app.raawmove.com/"
 
-<<<<<<< HEAD
+
     # DRIVERS
     chrome_driver = "C://Python38//chromedriver.exe"
     firefox_driver = "C://Python38//geckodriver.exe"

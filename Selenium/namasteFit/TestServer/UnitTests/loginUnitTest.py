@@ -1,10 +1,6 @@
 import time
 import unittest
-<<<<<<< HEAD
-#import HTMLTestRunner
-=======
 import HTMLTestRunner
->>>>>>> master
 import sys
 import os
 import time

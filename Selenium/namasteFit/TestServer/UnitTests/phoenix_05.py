@@ -4,10 +4,11 @@ import traceback
 import sys
 import os
 import time
-import namasteFit.CommonFiles.excelUtils as XUtils
-import gspread
-import namasteFit.CommonFiles.googleSheetsUtils as sheetsUtils
-from oauth2client.service_account import ServiceAccountCredentials
+# import namasteFit.CommonFiles.excelUtils as XUtils
+# import gspread
+# import namasteFit.CommonFiles.googleSheetsUtils as sheetsUtils
+# from oauth2client.service_account import ServiceAccountCredentials
+
 from namasteFit.TestServer.Pages.landingPage import LandingPage
 from namasteFit.TestServer.UnitTests.test_valid_login import LoginTest
 from namasteFit.TestServer.Pages.mysitePage import MySitePage
@@ -22,10 +23,10 @@ TestResults = ""
 drivers = []
 user_story = "107"
 
-
+# Site customize
 class Phoenix_07(unittest.TestCase):
     def setUp(self):
-        drivers.append({"webdriver": webdriver.Firefox, "executable_path": Locators.firefox_driver})
+        # drivers.append({"webdriver": webdriver.Firefox, "executable_path": Locators.firefox_driver})
         drivers.append({"webdriver": webdriver.Chrome, "executable_path": Locators.chrome_driver})
         drivers.append({"webdriver": webdriver.Edge, "executable_path": Locators.microsoft_edge_driver})
 
