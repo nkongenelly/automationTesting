@@ -8,7 +8,6 @@ import time
 # import gspread
 # import namasteFit.CommonFiles.googleSheetsUtils as sheetsUtils
 # from oauth2client.service_account import ServiceAccountCredentials
-
 from namasteFit.TestServer.Pages.landingPage import LandingPage
 from namasteFit.TestServer.UnitTests.test_valid_login import LoginTest
 from namasteFit.TestServer.Pages.mysitePage import MySitePage
@@ -17,11 +16,13 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+
 sys.path.append(os.path.join(os.path.dirname(__file__), "...", "..."))
 
 TestResults = ""
 drivers = []
 user_story = "107"
+
 
 # Site customize
 class Phoenix_07(unittest.TestCase):
@@ -60,15 +61,16 @@ class Phoenix_07(unittest.TestCase):
             login_button_element.click()
             WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, namaste_logo_xpath)))
 
-        # def test_page_refresh(self):
+            # def test_page_refresh(self):
             WebDriverWait(driver, 10).until(
                 EC.presence_of_element_located((By.XPATH, Locators.get_started_text_xpath)))
             url = driver.current_url
             # driver.refresh()
 
-        # test PHOENIX -5
+            # test PHOENIX -5
             time.sleep(5)
-            my_site_button = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, Locators.mysite_button_id)))
+            my_site_button = WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.ID, Locators.mysite_button_id)))
             my_events_button.click()
             WebDriverWait(driver, 10).until(
                 EC.presence_of_element_located((By.XPATH, Locators.my_site_page_text_xpath)))
@@ -95,7 +97,6 @@ class Phoenix_07(unittest.TestCase):
             if members_button == "null":
                 element = driver.find_element_by_xpath(Locators.get_started_text_xpath)
                 assert element.text(Locators.my_events_button_text)
-
 
     def tearDown(self) -> None:
         self.driver.close()

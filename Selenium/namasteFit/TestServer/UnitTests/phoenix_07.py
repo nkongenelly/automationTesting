@@ -5,9 +5,9 @@ import sys
 import os
 import time
 import namasteFit.CommonFiles.excelUtils as XUtils
-import gspread
-import namasteFit.CommonFiles.googleSheetsUtils as sheetsUtils
-from oauth2client.service_account import ServiceAccountCredentials
+# import gspread
+# import namasteFit.CommonFiles.googleSheetsUtils as sheetsUtils
+# from oauth2client.service_account import ServiceAccountCredentials
 from namasteFit.TestServer.Pages.landingPage import LandingPage
 from namasteFit.TestServer.UnitTests.test_valid_login import LoginTest
 from namasteFit.TestServer.Pages.mysitePage import MySitePage

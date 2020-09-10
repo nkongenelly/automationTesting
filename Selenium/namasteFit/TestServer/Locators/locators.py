@@ -21,8 +21,6 @@ class Locators():
     credentials_oauth = "google_sheets_oauth.json"
     userStoriesTestCases = "userStoriesTestCases"
 
-=======
->>>>>>> master
     # Login page objects
     email_field_id = "form-signin-email"
     pass_field_id = "form-signin-password"
@@ -30,7 +28,7 @@ class Locators():
     namaste_logo_xpath = "//*[@id='mainLogo']"
     successful_login_indicator_id = "getStarted"
     signout_button_xpath = "signOut"
-<<<<<<< HEAD
+
     # valid login
     namaste_username = "nelly@namaste.fit"
     namaste_password = "qwertyui"
@@ -57,19 +55,15 @@ class Locators():
     city_field_id = "city"
     state_field_id = "state"
     country_state_id = "country"
-=======
 
     #mysite page objects
->>>>>>> master
+
     instagram_textbox_id = "instagram"
     facebook_textbox_id = "facebook"
     youtube_textbox_id = "youtube"
     website_textbox_id = "website"
-<<<<<<< HEAD
     publish_button_xpath = '//*[@id="customForm"]/form/div/div[6]/div/div/button'
-=======
     publish_button_xpath = '//*[@id="customForm"]/form/div/div[6]/div/div/button'
 
     # Landing page objects
-    mysite_button_id = "mySite"
->>>>>>> master
+
