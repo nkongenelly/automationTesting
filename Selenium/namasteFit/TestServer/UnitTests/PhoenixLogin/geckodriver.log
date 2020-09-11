@@ -1,0 +1,155 @@
+1599748913590	geckodriver	INFO	Listening on 127.0.0.1:56441
+1599748916744	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nkong\\AppData\\Local\\Temp\\rust_mozprofileg8X8uo"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1599748921370	Marionette	INFO	Listening on port 56449
+1599748921620	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 605 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+1599749192418	Marionette	INFO	Stopped listening on port 56449
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+Temp\\rust_mozprofileAytsb6"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1599748970664	Marionette	INFO	Listening on port 56511
+1599748970738	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 605 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+1599749192682	Marionette	INFO	Stopped listening on port 56511
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+Temp\\rust_mozprofileWAKEmP"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1599749076518	Marionette	INFO	Listening on port 56583
+1599749077031	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 605 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1599749192515	Marionette	INFO	Stopped listening on port 56583
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+an't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1599749089000	Marionette	INFO	Listening on port 56645
+1599749089050	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 605 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1599749192788	Marionette	INFO	Stopped listening on port 56645
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1599759932553	geckodriver	INFO	Listening on 127.0.0.1:58710
+1599759935720	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\nkong\\AppData\\Local\\Temp\\rust_mozprofileTtJkFP"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1599759942030	Marionette	INFO	Listening on port 58718
+1599759942140	Marionette	WARN	TLS certificate errors will be ignored for this session
+1599760245559	Marionette	INFO	Stopped listening on port 58718
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+Temp\\rust_mozprofilevA8Dne"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1599759948544	Marionette	INFO	Listening on port 58756
+1599759948584	Marionette	WARN	TLS certificate errors will be ignored for this session
+1599760244582	Marionette	INFO	Stopped listening on port 58756
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+Temp\\rust_mozprofileTNtp6j"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1599760077641	Marionette	INFO	Listening on port 58797
+1599760078108	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 605 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 605 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 605 > Function, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js, line 3: unreachable code after return statement
+JavaScript warning: http://app.raawmove.com/main.dart.js line 610 > Function, line 3: unreachable code after return statement
+1599760243274	Marionette	INFO	Stopped listening on port 58797
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+Temp\\rust_mozprofileopxGXK"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1599760129154	Marionette	INFO	Listening on port 58861
+1599760129295	Marionette	WARN	TLS certificate errors will be ignored for this session
+1599760246683	Marionette	INFO	Stopped listening on port 58861
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
