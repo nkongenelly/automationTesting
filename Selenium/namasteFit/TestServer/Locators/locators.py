@@ -13,13 +13,18 @@ class Locators():
     # Page url name
     login_url = "login"
     main_url = "main"
+    mysites = "mysite"
+    myevents = "myevents"
+    createevents = "events"
+    members = "members"
+    managePayments = "managePayments"
 
     # Google sheet
-    scope = ["https://www.googleapis.com/auth/drive"]
+    # scope = ["https://www.googleapis.com/auth/drive"]
     # credentials = "google_sheets_credentials.json"
-    credentials = "C://Users//MB210-A30//Documents//Nelly//namaste//google_sheets_credentials.json"
-    credentials_oauth = "google_sheets_oauth.json"
-    userStoriesTestCases = "userStoriesTestCases"
+    # credentials = "C://Users//MB210-A30//Documents//Nelly//namaste//google_sheets_credentials.json"
+    # credentials_oauth = "google_sheets_oauth.json"
+    # userStoriesTestCases = "userStoriesTestCases"
 
     # Login page objects
     email_field_id = "form-signin-email"
@@ -36,6 +41,7 @@ class Locators():
     # Landing page objects
     mysite_button_id = "mySite"
     mysite_button_text = "My Site"
+    mysite_button_text_xpath = '//*[@id="page-content-wrapper"]/div/div[1]/h4'
     get_started_text_xpath = "/html/div/div[2]/div/div[1]/h4"
     get_started_text_text = "Get Started"
     customize_my_site_button_xpath = '//*[@id="siteCustomize"]/div/div[2]/h4'
@@ -44,8 +50,16 @@ class Locators():
     setup_events_button_text ='Setup Events'
     my_events_button_id = "overview"
     my_events_button_text = "My Events"
+    my_events_button_text_xpath = '//*[@id="page-content-wrapper"]/div/div[1]/h4'
     members_button_id = "members"
-    members_button_text = "Members"
+    members_button_text = "Summary"
+    members_button_text_xpath = '//*[@id="page-content-wrapper"]/div/div[1]/h4'
+    create_events_button_id = "events"
+    create_events_button_text = "Create Event"
+    create_events_button_text_xpath = '//*[@id="screenTitle"]'
+    manage_payments_id = "managePayments"
+    manage_payments_text = "Payment Methods"
+    manage_payments_text_xpath = '//*[@id="screenTitle"]'
 
     # My site page
     my_site_page_text_xpath = '//*[@id="page-content-wrapper"]/div/div[1]/h4'

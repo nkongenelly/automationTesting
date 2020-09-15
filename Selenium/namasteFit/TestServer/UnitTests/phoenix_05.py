@@ -25,7 +25,7 @@ user_story = "107"
 
 
 # Site customize
-class Phoenix_07(unittest.TestCase):
+class Phoenix_05(unittest.TestCase):
     def setUp(self):
         # drivers.append({"webdriver": webdriver.Firefox, "executable_path": Locators.firefox_driver})
         drivers.append({"webdriver": webdriver.Chrome, "executable_path": Locators.chrome_driver})
@@ -64,39 +64,92 @@ class Phoenix_07(unittest.TestCase):
             # def test_page_refresh(self):
             WebDriverWait(driver, 10).until(
                 EC.presence_of_element_located((By.XPATH, Locators.get_started_text_xpath)))
-            url = driver.current_url
+            # url_getstarted = driver.current_url
             # driver.refresh()
 
             # test PHOENIX -5
             time.sleep(5)
-            my_site_button = WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.ID, Locators.mysite_button_id)))
-            my_events_button.click()
-            WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, Locators.my_site_page_text_xpath)))
+            get_started_text_xpath = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, Locators.get_started_text_xpath)))
+            print("get_started_text_xpath = ", get_started_text_xpath)
+            my_site_id = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, Locators.mysite_button_id)))
+            print("my_site_id = ", my_site_id)
+            my_events_id = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, Locators.my_events_button_id)))
+            print("my_events_id = ", my_events_id)
+            create_events_xpath = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, Locators.create_events_button_id)))
+            print("create_events_xpath = ", create_events_xpath)
+            members_id = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, Locators.members_button_id)))
+            print("members_id = ", members_id)
+            manage_payments_id = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, Locators.manage_payments_id)))
+            print("manage_payments_id = ", manage_payments_id)
 
-            # my_events_button = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, Locators.my_events_button_id)))
-            # members_button = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, Locators.members_button_id)))
-            # members_button = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, Locators.members_button_id)))
-            # members_button = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, Locators.members_button_id)))
-            # members_button = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, Locators.members_button_id)))
-            # members_button = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, Locators.members_button_id)))
-            # members_button = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, Locators.members_button_id)))
-            # members_button = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, Locators.members_button_id)))
-            # members_button = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, Locators.members_button_id)))
-            # members_button = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, Locators.members_button_id)))
-
-            if my_site_button == "null":
+            if get_started_text_xpath != "null":
                 element = driver.find_element_by_xpath(Locators.get_started_text_xpath)
-                assert element.text(Locators.mysite_button_id)
+                get_started_text_xpath.click()
+                url_getstarted = driver.current_url
+                self.assertEquals(url_getstarted, Locators.testServer + Locators.main_url);
+                WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, Locators.customize_my_site_button_xpath)))
+                element_find = driver.find_elements_by_xpath(Locators.customize_my_site_button_xpath)
+                for value in element_find:
+                    # print("get_started_text_xpath element.text", value.text)
+                    # print("get_started_text_xpath element.text", element_find.text)
+                    assert value.text == Locators.customize_my_site_button_text
 
-            if my_events_button == "null":
-                element = driver.find_element_by_xpath(Locators.get_started_text_xpath)
-                assert element.text(Locators.my_events_button_text)
+                WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, Locators.setup_events_button_xpath)))
+                element_find2 = driver.find_elements_by_xpath(Locators.setup_events_button_xpath)
+                for value in element_find2:
+                    assert value.text == Locators.setup_events_button_text
 
-            if members_button == "null":
-                element = driver.find_element_by_xpath(Locators.get_started_text_xpath)
-                assert element.text(Locators.my_events_button_text)
+            if my_site_id != "null":
+                wait = WebDriverWait(driver, 10)
+                element = wait.until(EC.element_to_be_clickable((By.ID, Locators.mysite_button_id)))
+                # element = driver.find_element_by_id(Locators.mysite_button_id)
+                element.click()
+                url_getstarted = driver.current_url
+                self.assertEquals(url_getstarted, Locators.testServer + Locators.mysites);
+                element1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, Locators.mysite_button_text_xpath)))
+                assert element1.text == Locators.mysite_button_text
+
+            if my_events_id != "null":
+                wait = WebDriverWait(driver, 10)
+                element = wait.until(EC.element_to_be_clickable((By.ID, Locators.my_events_button_id)))
+                # element = driver.find_element_by_id(Locators.my_events_button_id)
+                element.click()
+                url_getstarted = driver.current_url
+                self.assertEquals(url_getstarted, Locators.testServer + Locators.myevents);
+                element1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, Locators.my_events_button_text_xpath)))
+                assert element1.text == Locators.my_events_button_text
+
+            if create_events_xpath != "null":
+                wait = WebDriverWait(driver, 10)
+                element = wait.until(EC.element_to_be_clickable((By.ID, Locators.create_events_button_id)))
+                # element = driver.find_element_by_id(Locators.create_events_button_id)
+                element.click()
+                url_getstarted = driver.current_url
+                self.assertEquals(url_getstarted, Locators.testServer + Locators.createevents);
+                element1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, Locators.create_events_button_text_xpath)))
+                assert element1.text == Locators.create_events_button_text
+
+            if members_id != "null":
+                wait = WebDriverWait(driver, 10)
+                element = wait.until(EC.element_to_be_clickable((By.ID, Locators.members_button_id)))
+                # element = driver.find_element_by_id(Locators.members_button_id)
+                element.click()
+                url_getstarted = driver.current_url
+                self.assertEquals(url_getstarted, Locators.testServer + Locators.members);
+                element1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, Locators.members_button_text_xpath)))
+                assert element1.text == Locators.members_button_text
+
+            if manage_payments_id != "null":
+                wait = WebDriverWait(driver, 10)
+                element = wait.until(EC.element_to_be_clickable((By.ID, Locators.manage_payments_id)))
+                # element = driver.find_element_by_id(Locators.manage_payments_id)
+                element.click()
+                url_getstarted = driver.current_url
+                self.assertEquals(url_getstarted, Locators.testServer + Locators.managePayments);
+                element1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, Locators.manage_payments_text_xpath)))
+                assert element1.text == Locators.manage_payments_text
+
+
 
     def tearDown(self) -> None:
         self.driver.close()
