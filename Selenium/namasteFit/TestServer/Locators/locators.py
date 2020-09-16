@@ -81,3 +81,16 @@ class Locators():
 
     # Landing page objects
 
+    #mobile emulation
+    chrome_mobile_emulation = {
+    "deviceName": "Galaxy S5"
+    # "deviceName": "Pixel 2",
+    # "deviceName": "Pixel 2 XL",
+    # "deviceName": "iPhone 5/SE",
+    # "deviceName": "iPhone 6/7/8",
+    # "deviceName": "iPhone 6/7/8 Plus",
+    # "deviceName": "iPhone X",
+    # "deviceName": "iPad",
+    # "deviceName": "iPad Pro",
+    }
+

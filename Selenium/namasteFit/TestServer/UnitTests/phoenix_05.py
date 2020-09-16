@@ -16,6 +16,7 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "...", "..."))
 
@@ -23,20 +24,38 @@ TestResults = ""
 drivers = []
 user_story = "107"
 
-
 # Site customize
 class Phoenix_05(unittest.TestCase):
     def setUp(self):
-        # drivers.append({"webdriver": webdriver.Firefox, "executable_path": Locators.firefox_driver})
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_experimental_option("mobileEmulation", Locators.chrome_mobile_emulation)
+
+        drivers.append({"webdriver": webdriver.Firefox, "executable_path": Locators.firefox_driver})
         drivers.append({"webdriver": webdriver.Chrome, "executable_path": Locators.chrome_driver})
+        drivers.append({"webdriver": webdriver.ChromeOptions, "executable_path": Locators.chrome_driver, "chrome_options":chrome_options})
         drivers.append({"webdriver": webdriver.Edge, "executable_path": Locators.microsoft_edge_driver})
 
+
     def test_107(self):
-        for browser in drivers:
+        # for browser in drivers:
+        for index, browser in enumerate(drivers):
+            for driver in drivers:
+                print(driver)
+            if index == "2":
+                print("index == " , index)
+                self.driver = browser["webdriver"](executable_path=browser["executable_path"], chrome_option=browser["chrome_options"])
+
             self.driver = browser["webdriver"](executable_path=browser["executable_path"])
+            # for
             self.driver.get(Locators.testServer + Locators.login_url)
             self.driver.maximize_window()
             driver = self.driver
+
+            # chrome_options = Options()
+            # chrome_options.add_argument(
+            #     '--user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) CriOS/56.0.2924.75 Mobile/14E5239e Safari/602.1')
+            # driver = webdriver.Chrome(options=chrome_options)
+            # driver.get('https://www.google.com')
 
             # Login email_field_element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, email_field_id)))
             namaste_username = Locators.namaste_username
