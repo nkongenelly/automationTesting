@@ -27,7 +27,7 @@ button.click()
 time.sleep(2)
 
 # Fill user's full name
-username = browser.find_element_by_id('user_fudll_name')
+username = browser.find_element_by_id('user_full_name')
 # username.send_keys('John Doe')
 slow_typing(username, 'John Doe')
 

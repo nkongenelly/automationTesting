@@ -1,7 +1,7 @@
 class Locators():
 
     # platform
-    testServer = "http://app.raawmove.com/"
+    testServer = "http://app.namastefit.one/"
 
 
     # DRIVERS
@@ -9,6 +9,9 @@ class Locators():
     firefox_driver = "C://Python38//geckodriver.exe"
     safari_driver = "/usr/bin/safaridriver"
     microsoft_edge_driver = "C://Python38//msedgedriver.exe"
+
+    #chrome user profile
+    chrome_user_profile = 'C://Users//nkong//AppData//Local//Google//Chrome//User Data//Default'
 
     # Page url name
     login_url = "login"
@@ -27,12 +30,22 @@ class Locators():
     # userStoriesTestCases = "userStoriesTestCases"
 
     # Login page objects
-    email_field_id = "form-signin-email"
-    pass_field_id = "form-signin-password"
-    login_button_xpath = "//*[@id='formLogin']/button"
+    connect_with_google_xpath = '//*[@id="root"]/div/main/div[2]/div[1]/div/div[1]/a'
+    # connect_with_google_xpath = '<a class="MuiButtonBase-root MuiButton-root MuiButton-text jss7" tabindex="0" aria-disabled="false" href="../auth/google"><span class="MuiButton-label"></span><span class="MuiTouchRipple-root"></span></a>'
+    use_another_account_xpath = '//*[@id="view_container"]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div/div/ul/li[6]/div/div/div[2]'
+    google_email_field_id = 'identifierId'
+    # google_email_field_xpath = '//*[@id="identifierId"]'
+    google_emailnext_button_xpath = '//*[@id="identifierNext"]/div/button/div[2]'
+    google_password_field_xpath = '//*[@id="password"]/div[1]/div/div[1]/input'
+    google_passwordnext_button_xpath = '//*[@id="passwordNext"]/div/button/div[2]'
+
+    # email_field_id = "form-signin-email"
+    # pass_field_id = "form-signin-password"
+    # login_button_xpath = "//*[@id='formLogin']/button"
     namaste_logo_xpath = "//*[@id='mainLogo']"
     successful_login_indicator_id = "getStarted"
-    signout_button_xpath = "signOut"
+    successful_login_logo_xpath = '//*[@id="root"]/div/div/header/div/div/img'
+    signout_button_xpath = '//*[@id="root"]/div/div/nav/div[2]/div/div/div/div[2]/button/span[1]'
 
     # valid login
     namaste_username = "nelly@namaste.fit"

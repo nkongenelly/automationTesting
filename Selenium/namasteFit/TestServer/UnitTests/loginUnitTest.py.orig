@@ -20,11 +20,11 @@ class LoginUnitTest(unittest.TestCase):
     driver = None
 
     @classmethod
-    def setUpClass(cls):
-        cls.driver = webdriver.Safari(executable_path='/usr/bin/safaridriver')
-        cls.driver.get(Locators.testServer +"login")
-        cls.driver.maximize_window()
-        return  cls.driver
+    def setUpClass(self):
+        self.driver = webdriver.Safari(executable_path='/usr/bin/safaridriver')
+        self.driver.get(Locators.testServer +"login")
+        self.driver.maximize_window()
+        return  self.driver
 
     def test_01_data_driven_login(self):
         driver = self.driver
@@ -61,8 +61,8 @@ class LoginUnitTest(unittest.TestCase):
 
 
     @classmethod
-    def tearDownClass(cls):
-        cls.driver.close()
+    def tearDownClass(self):
+        self.driver.close()
 
 if __name__ == '__main_':
     unittest.main()
