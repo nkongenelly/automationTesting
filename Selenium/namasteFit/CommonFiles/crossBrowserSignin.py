@@ -46,6 +46,47 @@ class CrossBrowserSignin():
 
         return self.driver
 
+    def ChromeMobileTests(self):
+        self.options = webdriver.ChromeOptions()
+        self.options.add_extension(extension=Locators.chrome_extension)
+
+        mobile_emulation = {"deviceName": "Nexus 5"}
+
+        # chrome_options = webdriver.ChromeOptions()
+
+        self.options.add_experimental_option("mobileEmulation", mobile_emulation)
+
+        # driver = webdriver.Remote(command_executor='http://127.0.0.1:4444/wd/hub',
+        #
+        #                           desired_capabilities=chrome_options.to_capabilities())
+
+        # self.options.add_argument(['--disable-web-security', '--user-data-dir' + Locators.chrome_user_self.options, '--allow-running-insecure-content'])
+        self.options.add_argument("--no-sandbox")
+        self.options.add_argument("--disable-save-passsword-bubble")
+        self.options.add_argument('--user-data-dir' + Locators.chrome_user_profile)
+        self.options.add_argument('--disable-web-security')
+        self.options.add_argument('disable-infobars')
+        self.options.add_argument('--allow-running-insecure-content')
+        self.options.add_experimental_option("useAutomationExtension", False)
+        # self.options .setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automatiion"))
+        desired = DesiredCapabilities.CHROME
+
+        prefs = {
+            "credentials_enable_service": False,
+            "profile.password_manager_enabled": False
+        }
+
+        self.options.add_experimental_option('prefs', prefs)
+        self.options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        self.driver = webdriver.Chrome(options=self.options, executable_path=Locators.chrome_driver)
+
+        self.driver.get(Locators.testServer)
+        self.driver.maximize_window()
+
+        # self.login(self.driver)
+
+        return self.driver
+
     def firefoxTests(self):
         # self.driver = webdriver.Firefox(executable_path=Locators.firefox_driver)
         # # driver = webdriver.Firefox()

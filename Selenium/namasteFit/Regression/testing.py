@@ -46,7 +46,7 @@ class Testing(unittest.TestCase):
         self.email = input("Enter email: ")
         self.password = input('Input password: ')
         # self.password = getpass.getpass('Input password: ')
-        self.EdgeTests()
+        self.ChromeTests()
         # self.firefoxTests()
 
     def EdgeTests(self):
@@ -59,6 +59,17 @@ class Testing(unittest.TestCase):
     def ChromeTests(self):
         self.options = webdriver.ChromeOptions()
         self.options.add_extension(extension=Locators.chrome_extension)
+
+        mobile_emulation = {"deviceName": "Nexus 5"}
+
+        # chrome_options = webdriver.ChromeOptions()
+
+        self.options.add_experimental_option("mobileEmulation", mobile_emulation)
+
+        # driver = webdriver.Remote(command_executor='http://127.0.0.1:4444/wd/hub',
+        #
+        #                           desired_capabilities=chrome_options.to_capabilities())
+
         # self.options.add_argument(['--disable-web-security', '--user-data-dir' + Locators.chrome_user_self.options, '--allow-running-insecure-content'])
         self.options.add_argument("--no-sandbox")
         self.options.add_argument("--disable-save-passsword-bubble")

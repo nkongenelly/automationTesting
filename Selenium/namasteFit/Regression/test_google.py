@@ -50,10 +50,12 @@ class Google(unittest.TestCase):
         # self.firefoxTests()
         crossbrowser = CrossBrowserSignin()
         chrome_driver = crossbrowser.ChromeTests()
+        chrome_mobile_driver = crossbrowser.ChromeMobileTests()
         firefox_driver = crossbrowser.firefoxTests()
         edge_driver = crossbrowser.EdgeTests()
         self.drivers = my_dictionary()
         self.drivers['chrome'] = chrome_driver
+        self.drivers['chrome'] = chrome_mobile_driver
         self.drivers['firefox'] = firefox_driver
         self.drivers['edge'] = edge_driver
 
