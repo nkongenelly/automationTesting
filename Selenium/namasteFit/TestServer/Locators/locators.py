@@ -2,6 +2,7 @@ class Locators():
 
     # platform
     testServer = "http://app.namastefit.one/"
+    chrome_extension = "E://NELLY'S FOLDERS//CODE//Python//namastefit//Selenium//namasteFit//CommonFiles//extension//extension.crx"
 
 
     # DRIVERS
@@ -12,6 +13,7 @@ class Locators():
 
     #chrome user profile
     chrome_user_profile = 'C://Users//nkong//AppData//Local//Google//Chrome//User Data//Default'
+    firefox_user_profile = 'C://Users//nkong//AppData//Roaming//Mozilla//Firefox//Profiles//0mlir59f.default-release'
 
     # Page url name
     login_url = "login"
@@ -47,6 +49,8 @@ class Locators():
     successful_login_logo_xpath = '//*[@id="root"]/div/div/header/div/div/img'
     signout_button_xpath = '//*[@id="root"]/div/div/nav/div[2]/div/div/div/div[2]/button/span[1]'
 
+    #signout
+    signout_button_xpath = '//*[@id="root"]/div/div/nav/div[2]/div/div/div/div[2]/button/span[1]'
     # valid login
     namaste_username = "nelly@namaste.fit"
     namaste_password = "qwertyui"

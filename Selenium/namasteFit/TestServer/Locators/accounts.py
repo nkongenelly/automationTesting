@@ -1,4 +1,4 @@
 class Accounts():
-    email = "kkenya526@gmail.com"
-
-    password = "526kkenya"
+    # email = "kkenya526@gmail.com"
+    email = "namasteautomation@gmail.com"
+    # email = "nelly@namaste.fit"

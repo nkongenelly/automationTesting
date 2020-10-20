@@ -15,7 +15,7 @@ class LoginPage():
         self.email_field = Locators.google_email_field_id
         self.email_field_next = Locators.google_emailnext_button_xpath
         self.pass_field = Locators.google_password_field_xpath
-        self.pass_field_next = Locators.google_password_field_xpath
+        self.pass_field_next = Locators.google_passwordnext_button_xpath
 
 
     def enterEmail(self, email):
@@ -27,13 +27,13 @@ class LoginPage():
         # self.driver.find_element_by_id(self.email_field).send_keys(email)
 
     def enterEmailNext(self):
-        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.email_field_next)))
+        WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.email_field_next)))
         self.driver.find_element_by_xpath(self.email_field_next).click()
 
     def enterPassword(self, password):
         WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.pass_field)))
-        self.driver.find_element_by_id(self.pass_field).clear()
-        passwordField = self.driver.find_element_by_id(self.pass_field)
+        self.driver.find_element_by_xpath(self.pass_field).clear()
+        passwordField = self.driver.find_element_by_xpath(self.pass_field)
         self.slow_typing(passwordField, password)
         # self.driver.find_element_by_id(self.pass_field).send_keys(password)
 

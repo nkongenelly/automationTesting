@@ -10,7 +10,7 @@ import unittest
 # class LoginTest():
 
 # driver = webdriver.Chrome(executable_path='C://Python38//chromedriver.exe')
-driver = webdriver.Edge(executable_path='C://Python38//msedgedriver.exe')
+driver = webdriver.Firefox(executable_path='C://Python38//msedgedriver.exe')
 # driver = webdriver.Firefox()
 driver.get("http://app.raawmove.com/login")
 driver.maximize_window()
