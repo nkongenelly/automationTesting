@@ -348,3 +348,25 @@ Can't find symbol 'eglSwapBuffersWithDamageEXT'.
 
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1603156184254	geckodriver	INFO	Listening on 127.0.0.1:57622
+1603156187343	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--user-data-dirC://Users//nkong//AppData//Roaming//Mozilla//Firefox//Profiles//0mlir59f.default-release" "-foreground" "-no-remote" "-profile" "C:\\Users\\Admin\\AppData\\Local\\Temp\\rust_mozprofileZtRoxt"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603156190679	Marionette	INFO	Listening on port 57630
+1603156191017	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603156257851	geckodriver	INFO	Listening on 127.0.0.1:57745
+1603156260882	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--user-data-dirC://Users//nkong//AppData//Roaming//Mozilla//Firefox//Profiles//0mlir59f.default-release" "-foreground" "-no-remote" "-profile" "C:\\Users\\Admin\\AppData\\Local\\Temp\\rust_mozprofileGwLgSy"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603156264189	Marionette	INFO	Listening on port 57753
+1603156264583	Marionette	WARN	TLS certificate errors will be ignored for this session
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+1603156370925	Marionette	INFO	Stopped listening on port 57753
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+

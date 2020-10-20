@@ -16,14 +16,30 @@ from selenium.webdriver.common.by import By
 # from ..TestServer.Locators.locators import Locators
 # from ..TestServer.Pages.loginPage import LoginPage
 from namasteFit.TestServer.Locators.locators import Locators
+from namasteFit.CommonFiles.crossBrowserSignin import CrossBrowserSignin
 from namasteFit.TestServer.Locators.accounts import Accounts
 from namasteFit.TestServer.Pages.loginPage import LoginPage
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "...", "..."))
 # unittest.TestLoader.sortTestMethodsUsing = lambda _, x, y: cmp(y, x)
 
-# Site customize
-class GoogleTest(unittest.TestCase):
+class my_dictionary(dict):
+
+    # __init__ function
+    def __init__(self):
+        self = dict()
+
+        # Function to add key:value
+
+    def add(self, key, value):
+        self[key] = value
+
+    # Main Function
+
+
+# dict_obj = my_dictionary()
+
+class Testing(unittest.TestCase):
     def setUp(self):
         print('Enter the gmailid and password')
         # self.email, self.password = map(str, input().split())
@@ -39,6 +55,7 @@ class GoogleTest(unittest.TestCase):
         self.driver.maximize_window()
 
         return self.driver
+
     def ChromeTests(self):
         self.options = webdriver.ChromeOptions()
         self.options.add_extension(extension=Locators.chrome_extension)
@@ -90,7 +107,8 @@ class GoogleTest(unittest.TestCase):
         desired = DesiredCapabilities.FIREFOX
 
         # self.driver = webdriver.Firefox(firefox_profile=self.options, desired_capabilities=desired, executable_path=Locators.firefox_driver)
-        self.driver = webdriver.Firefox(options=self.options, desired_capabilities=desired, executable_path=Locators.firefox_driver)
+        self.driver = webdriver.Firefox(options=self.options, desired_capabilities=desired,
+                                        executable_path=Locators.firefox_driver)
         # self.driver = webdriver.Firefox(options=self.options, executable_path=Locators.firefox_driver)
 
         self.driver.set_page_load_timeout(20)
@@ -108,7 +126,6 @@ class GoogleTest(unittest.TestCase):
 
         return self.driver
 
-
     def test_login(self):
         driver = self.driver
         time.sleep(2)
@@ -123,10 +140,9 @@ class GoogleTest(unittest.TestCase):
 
         try:
             # Navigate to Login Page
-            WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.XPATH, Locators.connect_with_google_xpath)))
+            WebDriverWait(driver, 30).until(
+                EC.presence_of_element_located((By.XPATH, Locators.connect_with_google_xpath)))
             driver.find_element_by_xpath(Locators.connect_with_google_xpath).click()
-
-
 
             # Enter email and click next
             loginPage = LoginPage(driver)
@@ -158,7 +174,7 @@ class GoogleTest(unittest.TestCase):
         if loginURL == Locators.testServer:
             print("YOU HAVE NO ACCESS TO THE STUDIO PLATFORM")
 
-        elif loginURL == Locators.testServer+"/home/studio":
+        elif loginURL == Locators.testServer + "/home/studio":
             print("PLEASE PUBLISH YOUR STUDIO FIRST")
 
         driver.close()
@@ -177,11 +193,9 @@ class GoogleTest(unittest.TestCase):
         #     print(current_link)
         #     self.assertEqual("/static/media/logo.e1ae6d8b.png", current_link)
 
-
-
-
     # def tearDown(self) -> None:
     #     self.driver.close()
+
 
 if __name__ == '__main_':
     unittest.main()

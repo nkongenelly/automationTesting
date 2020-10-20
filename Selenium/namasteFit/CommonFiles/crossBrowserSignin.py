@@ -85,3 +85,10 @@ class CrossBrowserSignin():
                 break
 
         return self.driver
+
+    def EdgeTests(self):
+        self.driver = webdriver.Edge(executable_path=Locators.microsoft_edge_driver)
+        self.driver.get(Locators.testServer)
+        self.driver.maximize_window()
+
+        return self.driver

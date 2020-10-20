@@ -44,16 +44,18 @@ class Google(unittest.TestCase):
         print('Enter the gmailid and password')
         # self.email, self.password = map(str, input().split())
         self.email = input("Enter email: ")
-        # self.password = input('Input password: ')
-        self.password = getpass.getpass('Input password: ')
+        self.password = input('Input password: ')
+        # self.password = getpass.getpass('Input password: ')
         # self.ChromeTests()
         # self.firefoxTests()
         crossbrowser = CrossBrowserSignin()
         chrome_driver = crossbrowser.ChromeTests()
         firefox_driver = crossbrowser.firefoxTests()
+        edge_driver = crossbrowser.EdgeTests()
         self.drivers = my_dictionary()
         self.drivers['chrome'] = chrome_driver
         self.drivers['firefox'] = firefox_driver
+        self.drivers['edge'] = edge_driver
 
         print("ALL DRIVERS = ")
         for driver in self.drivers.values():
