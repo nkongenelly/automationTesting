@@ -46,11 +46,11 @@ class CrossBrowserSignin():
 
         return self.driver
 
-    def ChromeMobileTests(self):
+    def ChromeMobileTestsNexus(self):
         self.options = webdriver.ChromeOptions()
         self.options.add_extension(extension=Locators.chrome_extension)
 
-        mobile_emulation = {"deviceName": "Nexus 5"}
+        mobile_emulation = Locators.chrome_mobile_emulation_Nexus
 
         # chrome_options = webdriver.ChromeOptions()
 
@@ -84,6 +84,35 @@ class CrossBrowserSignin():
         self.driver.maximize_window()
 
         # self.login(self.driver)
+
+        return self.driver
+
+    def ChromeMobileTestsGalaxy(self):
+        self.options = webdriver.ChromeOptions()
+        self.options.add_extension(extension=Locators.chrome_extension)
+
+        mobile_emulation = Locators.chrome_mobile_emulation_galaxy
+
+        self.options.add_experimental_option("mobileEmulation", mobile_emulation)
+        self.options.add_argument("--no-sandbox")
+        self.options.add_argument("--disable-save-passsword-bubble")
+        self.options.add_argument('--user-data-dir' + Locators.chrome_user_profile)
+        self.options.add_argument('--disable-web-security')
+        self.options.add_argument('disable-infobars')
+        self.options.add_argument('--allow-running-insecure-content')
+        self.options.add_experimental_option("useAutomationExtension", False)
+        desired = DesiredCapabilities.CHROME
+
+        prefs = {
+            "credentials_enable_service": False,
+            "profile.password_manager_enabled": False
+        }
+
+        self.options.add_experimental_option('prefs', prefs)
+        self.options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        self.driver = webdriver.Chrome(options=self.options, executable_path=Locators.chrome_driver)
+        self.driver.get(Locators.testServer)
+        self.driver.maximize_window()
 
         return self.driver
 

@@ -5,9 +5,10 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from namasteFit.TestServer.Locators.locators import Locators
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".", "."))
-from ..Locators.locators import Locators
+# from ..Locators.locators import Locators
 
 class SignoutPage():
     def __init__(self, driver):

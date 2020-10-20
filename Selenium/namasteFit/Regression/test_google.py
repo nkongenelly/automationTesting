@@ -50,12 +50,14 @@ class Google(unittest.TestCase):
         # self.firefoxTests()
         crossbrowser = CrossBrowserSignin()
         chrome_driver = crossbrowser.ChromeTests()
-        chrome_mobile_driver = crossbrowser.ChromeMobileTests()
+        chrome_mobile_driver_nexus = crossbrowser.ChromeMobileTestsNexus()
+        chrome_mobile_driver_galaxy = crossbrowser.ChromeMobileTestsGalaxy()
         firefox_driver = crossbrowser.firefoxTests()
         edge_driver = crossbrowser.EdgeTests()
         self.drivers = my_dictionary()
         self.drivers['chrome'] = chrome_driver
-        self.drivers['chrome'] = chrome_mobile_driver
+        self.drivers['chromeMobileNexus'] = chrome_mobile_driver_nexus
+        self.drivers['chromeMobileGalaxy'] = chrome_mobile_driver_galaxy
         self.drivers['firefox'] = firefox_driver
         self.drivers['edge'] = edge_driver
 
@@ -67,99 +69,18 @@ class Google(unittest.TestCase):
 
 
     def test_login(self):
-        for driverOptions in self.drivers.values():
+        for driverOptions in self.drivers:
+
             # time.sleep(10)
             print("again")
             print(driverOptions)
-            self.driver = driverOptions
+            self.driver = self.drivers[driverOptions]
             driver = self.driver
-            print(driver)
-            time.sleep(2)
-            # Define variables
-            email = self.email
-            password = self.password
-            # print('Enter the gmailid and password')
-            # email, password = map(str, input().split())
 
-            # email = Accounts.email
-            # password = Accounts.password
+            loginPage = LoginPage(driver)
+            loginPage.login(driver, driverOptions, self.email, self.password)
+            print(loginPage)
 
-            try:
-                # Navigate to Login Page
-                WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.XPATH, Locators.connect_with_google_xpath)))
-                driver.find_element_by_xpath(Locators.connect_with_google_xpath).click()
-
-
-
-                # Enter email and click next
-                loginPage = LoginPage(driver)
-
-                loginPage.enterEmail(email)
-                loginPage.enterEmailNext()
-                time.sleep(3)
-                start = timeit.timeit()
-                # Enter password and click next
-                loginPage.enterPassword(password)
-                loginPage.enterPasswordNext()
-
-                end = timeit.timeit()
-
-                time.sleep(10)
-                # self.landingPage(end, start, driver)
-
-                loginURL = driver.current_url
-                print("Time taken to sign in is : ")
-                print(end - start)
-                print("current URl = ")
-                print(loginURL)
-
-                if loginURL == Locators.testServer:
-                    print("YOU HAVE NO ACCESS TO THE STUDIO PLATFORM")
-
-                elif loginURL == Locators.testServer + "/home/studio":
-                    print("PLEASE PUBLISH YOUR STUDIO FIRST")
-
-                # driver.close()
-                time.sleep(5)
-                # self.firefoxTests()
-
-            except Exception as e:
-                print('Login Failed')
-                print(str(e))
-                # logger.error('Failed to upload to ftp: ' + str(e))
-
-                # driver.close()
-
-    # def landingPage(self, end, start, driver):
-    #     # driver = self.driver
-    #     # get URl after successful login
-    #     loginURL = driver.current_url
-    #     print("Time taken to sign in is : ")
-    #     print(end - start)
-    #     print("current URl = ")
-    #     print(loginURL)
-    #
-    #     if loginURL == Locators.testServer:
-    #         print("YOU HAVE NO ACCESS TO THE STUDIO PLATFORM")
-    #
-    #     elif loginURL == Locators.testServer+"/home/studio":
-    #         print("PLEASE PUBLISH YOUR STUDIO FIRST")
-    #
-    #     driver.close()
-    #     time.sleep(5)
-    #     self.firefoxTests()
-    #
-    #     # Assertain successful login logo exists
-    #     # WebDriverWait(self.driver, 10).until(
-    #     #     EC.presence_of_element_located((By.XPATH, Locators.successful_login_logo_xpath)))
-    #     # namasteLogo = driver.find_elements(By.TAG_NAME, 'img')
-    #     #
-    #     # for image in namasteLogo:
-    #     #     current_link = image.get_attribute("src")
-    #     #     print("current_link")
-    #     #     assert current_link == "/static/media/logo.e1ae6d8b.png"
-    #     #     print(current_link)
-    #     #     self.assertEqual("/static/media/logo.e1ae6d8b.png", current_link)
 
 
 
