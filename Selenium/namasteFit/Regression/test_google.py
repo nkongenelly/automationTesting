@@ -1,24 +1,10 @@
 import getpass
 import sys
 import os
-import timeit
 import unittest
-import time
-from filecmp import cmp
-
-from selenium import webdriver
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver import DesiredCapabilities
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-
-# from ..TestServer.Locators.locators import Locators
-# from ..TestServer.Pages.loginPage import LoginPage
-from namasteFit.TestServer.Locators.locators import Locators
 from namasteFit.CommonFiles.crossBrowserSignin import CrossBrowserSignin
-from namasteFit.TestServer.Locators.accounts import Accounts
 from namasteFit.TestServer.Pages.loginPage import LoginPage
+
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "...", "..."))
 # unittest.TestLoader.sortTestMethodsUsing = lambda _, x, y: cmp(y, x)
@@ -48,6 +34,7 @@ class Google(unittest.TestCase):
         # self.ChromeTests()
         # self.firefoxTests()
         crossbrowser = CrossBrowserSignin()
+        # crossbrowser = BlazeMeterCrossBrowserSignin()
         chrome_driver = crossbrowser.ChromeTests()
         chrome_mobile_driver_nexus = crossbrowser.ChromeMobileTestsNexus()
         chrome_mobile_driver_galaxy = crossbrowser.ChromeMobileTestsGalaxy()
@@ -64,7 +51,7 @@ class Google(unittest.TestCase):
         for driver in self.drivers.values():
             print(driver)
         return self.drivers
-        # drivers.append(firefox_driver)
+        drivers.append(firefox_driver)
 
 
     def test_login(self):
@@ -75,6 +62,7 @@ class Google(unittest.TestCase):
             print(driverOptions)
             self.driver = self.drivers[driverOptions]
             driver = self.driver
+            # webbrowser.open('https://'+ 'a.blazemeter.com' +'/api/v4/grid/sessions/' + self.driver.session_id + '/redirect/to/report')
 
             loginPage = LoginPage(driver)
             loginPage.login(driver, driverOptions, self.email, self.password)

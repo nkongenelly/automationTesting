@@ -11,7 +11,8 @@ import unittest
 class LoginTest(unittest.TestCase):
     def setUp(self):
         # self.driver = webdriver.Safari(executable_path='/usr/bin/safaridriver')
-        self.driver = webdriver.Safari(executable_path=Locators.chrome_driver)
+        # self.driver = webdriver.Safari(executable_path=Locators.chrome_driver)
+        self.driver = webdriver.Chrome(executable_path="C://Python38//chromedriver.exe")
         self.driver.get("http://app.raawmove.com/login")
         self.driver.maximize_window()
 

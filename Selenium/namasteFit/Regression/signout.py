@@ -3,13 +3,8 @@ import os
 import unittest
 import time
 from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
 from namasteFit.TestServer.Locators.locators import Locators
-from namasteFit.TestServer.Locators.accounts import Accounts
-from namasteFit.TestServer.Pages.signoutPage import SignoutPage
-# from .test_google import Google
+from namasteFit.CommonFiles.captureCookies import CaptureCookies
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "...", "..."))
 
@@ -17,8 +12,17 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "...", "..."))
 class Signout(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome(executable_path = Locators.chrome_driver)
-        # self.driver.get(Locators.testServer + 'home/get-started')
-        # self.driver.maximize_window()
+
+        cookies = CaptureCookies(self.driver)
+        time.sleep(4)
+        driverCookies = cookies.useCookies()
+        time.sleep(5)
+        self.driver.get(Locators.testServer + 'home/get-started')
+        self.driver = driverCookies
+        self.driver.maximize_window()
+        print("DRIVER COOKIES = ")
+        print(self.driver)
+        # return driverCookies
         return self.driver
 
 

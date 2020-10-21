@@ -1,70 +1,85 @@
+import getpass
 import sys
 import os
 import unittest
-import time
-from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from namasteFit.TestServer.Locators.locators import Locators
+import webbrowser
+
+from namasteFit.CommonFiles.blazeMeterCrossBrowser import BlazeMeterCrossBrowserSignin
+from namasteFit.TestServer.Pages.loginPage import LoginPage
+from namasteFit.CommonFiles.blazeArgs import BlazeArgs
+from namasteFit.TestServer.Locators.credentials import Credentials
+from namasteFit.CommonFiles.crossBrowserSignin import CrossBrowserSignin
 from namasteFit.TestServer.Locators.accounts import Accounts
 from namasteFit.TestServer.Pages.loginPage import LoginPage
 
-sys.path.append(os.path.join(os.path.dirname(__file__), ".", "."))
+sys.path.append(os.path.join(os.path.dirname(__file__), "...", "..."))
+# unittest.TestLoader.sortTestMethodsUsing = lambda _, x, y: cmp(y, x)
 
-print("start...")
+class my_dictionary(dict):
 
-class Google_Login(unittest.TestCase):
-    # @classmethod
+    # __init__ function
+    def __init__(self):
+        self = dict()
+
+        # Function to add key:value
+
+    def add(self, key, value):
+        self[key] = value
+
+    # Main Function
+
+
+# dict_obj = my_dictionary()
+
+class Google(unittest.TestCase):
     def setUp(self):
-        # self.driver = webdriver.Chrome(executable_path = Locators.chrome_driver)
-        # cls.driver.get(Locators.testServer)
-        # cls.driver.maximize_window()
+        # self.email, self.password = map(str, input().split())
+        self.email = input("Enter email: ")
+        self.password = input('Input password: ')
+        # self.password = getpass.getpass('Input password: ')
+        # self.ChromeTests()
+        # self.firefoxTests()
+        # crossbrowser = CrossBrowserSignin()
+        crossbrowser = BlazeMeterCrossBrowserSignin()
+        # chrome_driver = crossbrowser.ChromeTests()
+        # chrome_mobile_driver_nexus = crossbrowser.ChromeMobileTestsNexus()
+        # chrome_mobile_driver_galaxy = crossbrowser.ChromeMobileTestsGalaxy()
+        firefox_driver = crossbrowser.firefoxTests()
+        # edge_driver = crossbrowser.EdgeTests()
+        self.drivers = my_dictionary()
+        # self.drivers['chrome'] = chrome_driver
+        # self.drivers['chromeMobileNexus'] = chrome_mobile_driver_nexus
+        # self.drivers['chromeMobileGalaxy'] = chrome_mobile_driver_galaxy
+        self.drivers['firefox'] = firefox_driver
+        # self.drivers['edge'] = edge_driver
 
-        self.options = webdriver.ChromeOptions().add_argument("--user-data-dir=" + Locators.chrome_user_profile)
+        print("ALL DRIVERS = ")
+        for driver in self.drivers.values():
+            print(driver)
+        return self.drivers
+        # drivers.append(firefox_driver)
 
-        self.driver = webdriver.Chrome(chrome_options=self.options, executable_path = Locators.chrome_driver)
-        self.driver.get(Locators.testServer)
-        return self.driver
 
     def test_login(self):
-        driver = self.driver
-        time.sleep(1)
+        for driverOptions in self.drivers:
 
-        # Navigate to Login Page
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, self.connect_with_google_xpath)))
-        driver.find_element_by_xpath(self.connect_with_google_xpath).click()
+            # time.sleep(10)
+            print("again")
+            print(driverOptions)
+            self.driver = self.drivers[driverOptions]
+            driver = self.driver
+            # webbrowser.open('https://'+ 'a.blazemeter.com' +'/api/v4/grid/sessions/' + self.driver.session_id + '/redirect/to/report')
 
-        #Define variables
-        email = Accounts.email
-        password = Accounts.password
+            loginPage = LoginPage(driver)
+            loginPage.login(driver, driverOptions, self.email, self.password)
+            print(loginPage)
 
-        #Enter email and click next
-        LoginPage.enterEmail(self, email)
-        LoginPage.email_field_next
 
-        #Enter password and click next
-        LoginPage.enterPassword(self, password)
-        LoginPage.enterPasswordNext()
 
-        time.sleep(1)
 
-        #Assertain successful login logo exists
-        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, Locators.successful_login_logo_xpath)))
-        namasteLogo = driver.find_elements(By.TAG_NAME, 'img')
 
-        for image in namasteLogo:
-            current_link = image.get_attribute("src")
-            print("current_link")
-            assert current_link == "/static/media/logo.e1ae6d8b.png"
-            print(current_link)
-            self.assertEqual("/static/media/logo.e1ae6d8b.png", current_link)
-
-        # driver.close()
-
-    def tearDown(self) -> None:
-        self.driver.close()
-
+    # def tearDown(self) -> None:
+    #     self.driver.close()
 
 if __name__ == '__main_':
     unittest.main()

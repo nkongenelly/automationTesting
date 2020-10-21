@@ -8,6 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from namasteFit.TestServer.Locators.locators import Locators
 from namasteFit.CommonFiles.blazeArgs import BlazeArgs
+from namasteFit.CommonFiles.captureCookies import CaptureCookies
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".", "."))
 # from ..Locators.locators import Locators
@@ -65,23 +66,25 @@ class LoginPage():
             # Enter email and click next
             self.enterEmail(email)
             self.enterEmailNext()
-            time.sleep(3)
-            start = timeit.timeit()
+            time.sleep(20)
+            # start = timeit.timeit()
             # Enter password and click next
             self.enterPassword(password)
             self.enterPasswordNext()
 
-            end = timeit.timeit()
+            # end = timeit.timeit()
 
-            time.sleep(5)
+            time.sleep(0)
+            cookies = CaptureCookies(driver)
+            cookies.capture(driverName)
             # self.landingPage(end, start, driver)
 
             loginURL = driver.current_url
             print("Time taken to sign in is : ")
-            print(str(end - start))
+            # print(str(end - start))
             print("current URl = ")
             print(loginURL)
-            self.loginMessageResults(loginURL)
+            # self.loginMessageResults(loginURL)
             result = ""
 
             blazeArgs = BlazeArgs()
@@ -109,7 +112,7 @@ class LoginPage():
 
             # driver.close()
             # time.sleep(5)
-            message = driverName + "browser status message for this account is : " + result + "\n And login in time is :" + str(end -start) + " seconds"
+            message = driverName + "browser status message for this account is : " + result
             return message
 
         except Exception as e:
@@ -118,31 +121,36 @@ class LoginPage():
             print(str(e))
             time.sleep(3)
             # driver.close()
-            message = driverName + "browser status message for this account is : " + result + " \n And login in time is :" + str(end - start) + " seconds"
+            message = driverName + "browser status message for this account is : " + result
 
             return message
 
     def loginMessageResults(self, loginURL):
         a = Locators.testServer
         landingPages = my_dictionary()
-        landingPages['pages'] = {[a], [a + "/home/studio"], [a +"/home/get-started"]}
-        landingPages['status'] = {["passed", "failed", "broken"]}
-        landingPages['messages'] = {"YOU HAVE NO ACCESS TO THE STUDIO PLATFORM","PLEASE PUBLISH YOUR STUDIO FIRST", "WELCOME BACK TO YOUR STUDIO PLATFORM"}
-        landingPages = [a, a + "/home/studio", a +"/home/get-started"]
+        landingPages['pages'] = {1: "home", 2: "/home/get-started", 3: "/home/get-started"}
+        landingPages['status'] = {1: "passed", 2: "failed", 3: "broken"}
+        landingPages['messages'] = {"YOU HAVE NO ACCESS TO THE STUDIO PLATFORM", "PLEASE PUBLISH YOUR STUDIO FIRST",
+                                    "WELCOME BACK TO YOUR STUDIO PLATFORM"}
 
+        landingPages['testSuiteName'] = {1:"Test for non- registered emails", 2:"Test for first time users landing page",3:"Test for second time studio owners"}
+        landingPages['testCaseName'] = {1:"Non-registered emails should not access the platform",2:"First time users should land on my studio page",3:"Second time user lands on get-started page"}
+
+        count = 1
+        blazeArgs = BlazeArgs()
         for landedPage in landingPages:
-            blazeArgs = BlazeArgs()
-            blazeArgs.blazemeterArgsStart(self.driver, "'namaste.fit landing page'",
-                                          "landing message for this account is " + loginURL)
+
+            blazeArgs.blazemeterArgsStart(self.driver, landingPages['testSuiteName'][count],
+                                          landingPages['testCaseName'][count] + loginURL)
             try:
-                if loginURL == landedPage:
-                    result = "YOU HAVE NO ACCESS TO THE STUDIO PLATFORM"
+                if loginURL == landingPages['pages'][count]:
+                    result = landingPages['messages'][count]
                     print(result)
-                    blazeArgs.addArgs('passed', '')
+                    blazeArgs.addArgs(landingPages['status'][1], result)
             except AssertionError as exc:
-                blazeArgs.addArgs('failed', '')
+                blazeArgs.addArgs(landingPages['status'][2], '')
             except BaseException as exc:
-                blazeArgs.addArgs('broken', '')
+                blazeArgs.addArgs(landingPages['status'][3], '')
             blazeArgs.blazemeterArgsStop()
 
 

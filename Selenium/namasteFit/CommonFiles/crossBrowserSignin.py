@@ -51,16 +51,7 @@ class CrossBrowserSignin():
         self.options.add_extension(extension=Locators.chrome_extension)
 
         mobile_emulation = Locators.chrome_mobile_emulation_Nexus
-
-        # chrome_options = webdriver.ChromeOptions()
-
         self.options.add_experimental_option("mobileEmulation", mobile_emulation)
-
-        # driver = webdriver.Remote(command_executor='http://127.0.0.1:4444/wd/hub',
-        #
-        #                           desired_capabilities=chrome_options.to_capabilities())
-
-        # self.options.add_argument(['--disable-web-security', '--user-data-dir' + Locators.chrome_user_self.options, '--allow-running-insecure-content'])
         self.options.add_argument("--no-sandbox")
         self.options.add_argument("--disable-save-passsword-bubble")
         self.options.add_argument('--user-data-dir' + Locators.chrome_user_profile)
@@ -92,7 +83,6 @@ class CrossBrowserSignin():
         self.options.add_extension(extension=Locators.chrome_extension)
 
         mobile_emulation = Locators.chrome_mobile_emulation_galaxy
-
         self.options.add_experimental_option("mobileEmulation", mobile_emulation)
         self.options.add_argument("--no-sandbox")
         self.options.add_argument("--disable-save-passsword-bubble")
@@ -101,6 +91,7 @@ class CrossBrowserSignin():
         self.options.add_argument('disable-infobars')
         self.options.add_argument('--allow-running-insecure-content')
         self.options.add_experimental_option("useAutomationExtension", False)
+        # self.options .setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automatiion"))
         desired = DesiredCapabilities.CHROME
 
         prefs = {
@@ -111,36 +102,22 @@ class CrossBrowserSignin():
         self.options.add_experimental_option('prefs', prefs)
         self.options.add_experimental_option("excludeSwitches", ["enable-automation"])
         self.driver = webdriver.Chrome(options=self.options, executable_path=Locators.chrome_driver)
+
         self.driver.get(Locators.testServer)
         self.driver.maximize_window()
 
         return self.driver
 
     def firefoxTests(self):
-        # self.driver = webdriver.Firefox(executable_path=Locators.firefox_driver)
-        # # driver = webdriver.Firefox()
-        # self.driver.get(Locators.testServer)
-        # self.driver.maximize_window()
-        # time.sleep(10)
-
         self.options = webdriver.FirefoxOptions()
         self.options.add_argument('--user-data-dir' + Locators.firefox_user_profile)
-        # PROXY_HOST = "12.12.12.123"
-        # PROXY_PORT = "1234"
         self.options.set_preference("network.proxy.type", 1)
-        # self.options.set_preference("network.proxy.http", PROXY_HOST)
-        # self.options.set_preference("network.proxy.http_port", int(PROXY_PORT))
         self.options.set_preference("dom.webdriver.enabled", False)
         self.options.set_preference('useAutomationExtension', False)
-        # self.options.update_preference()
-        # self.options.update_preferences()
         desired = DesiredCapabilities.FIREFOX
 
-        # self.driver = webdriver.Firefox(firefox_profile=self.options, desired_capabilities=desired, executable_path=Locators.firefox_driver)
         self.driver = webdriver.Firefox(options=self.options, desired_capabilities=desired,
                                         executable_path=Locators.firefox_driver)
-        # self.driver = webdriver.Firefox(options=self.options, executable_path=Locators.firefox_driver)
-
         self.driver.set_page_load_timeout(20)
         self.driver.get(Locators.testServer)
         while True:
