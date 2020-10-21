@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from namasteFit.TestServer.Locators.locators import Locators
+from namasteFit.CommonFiles.blazeArgs import BlazeArgs
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".", "."))
 # from ..Locators.locators import Locators
@@ -77,25 +78,38 @@ class LoginPage():
 
             loginURL = driver.current_url
             print("Time taken to sign in is : ")
-            print(end - start)
+            print(str(end - start))
             print("current URl = ")
             print(loginURL)
+            self.loginMessageResults(loginURL)
+            result = ""
 
-            if loginURL == Locators.testServer:
-                result = "YOU HAVE NO ACCESS TO THE STUDIO PLATFORM"
-                print(result)
-
-            elif loginURL == Locators.testServer + "/home/studio":
-                result = "PLEASE PUBLISH YOUR STUDIO FIRST"
-                print(result)
-
-            elif loginURL == Locators.testServer + "/home/get-started":
-                result = "WELCOME BACK TO YOUR STUDIO PLATFORM"
-                print(result)
+            blazeArgs = BlazeArgs()
+            result = blazeArgs.blazemeterArgsStart(driver, "'namaste.fit landing page'",
+                                          "landing message for this account is " + loginURL)
+        #     try:
+        #         if loginURL == Locators.testServer:
+        #             result = "YOU HAVE NO ACCESS TO THE STUDIO PLATFORM"
+        #             print(result)
+        #             blazeArgs.addArgs('passed', '')
+        #     except AssertionError as exc:
+        #         blazeArgs.addArgs('failed', '')
+        #     except BaseException as exc:
+        #         blazeArgs.addArgs('broken', '')
+        #     blazeArgs.blazemeterArgsStop()
+        #
+        # try:
+        #     if loginURL == Locators.testServer + "/home/studio":
+        #         result = "PLEASE PUBLISH YOUR STUDIO FIRST"
+        #         print(result)
+        #
+        #     elif loginURL == Locators.testServer + "/home/get-started":
+        #         result = "WELCOME BACK TO YOUR STUDIO PLATFORM"
+        #         print(result)
 
             # driver.close()
             # time.sleep(5)
-            message = driverName + "browser status message for this account is : " + result + "\n And login in time is :" + end -start + " seconds"
+            message = driverName + "browser status message for this account is : " + result + "\n And login in time is :" + str(end -start) + " seconds"
             return message
 
         except Exception as e:
@@ -108,5 +122,38 @@ class LoginPage():
 
             return message
 
+    def loginMessageResults(self, loginURL):
+        a = Locators.testServer
+        landingPages = my_dictionary()
+        landingPages['pages'] = {[a], [a + "/home/studio"], [a +"/home/get-started"]}
+        landingPages['status'] = {["passed", "failed", "broken"]}
+        landingPages['messages'] = {"YOU HAVE NO ACCESS TO THE STUDIO PLATFORM","PLEASE PUBLISH YOUR STUDIO FIRST", "WELCOME BACK TO YOUR STUDIO PLATFORM"}
+        landingPages = [a, a + "/home/studio", a +"/home/get-started"]
 
+        for landedPage in landingPages:
+            blazeArgs = BlazeArgs()
+            blazeArgs.blazemeterArgsStart(self.driver, "'namaste.fit landing page'",
+                                          "landing message for this account is " + loginURL)
+            try:
+                if loginURL == landedPage:
+                    result = "YOU HAVE NO ACCESS TO THE STUDIO PLATFORM"
+                    print(result)
+                    blazeArgs.addArgs('passed', '')
+            except AssertionError as exc:
+                blazeArgs.addArgs('failed', '')
+            except BaseException as exc:
+                blazeArgs.addArgs('broken', '')
+            blazeArgs.blazemeterArgsStop()
+
+
+class my_dictionary(dict):
+
+    # __init__ function
+    def __init__(self):
+        self = dict()
+
+        # Function to add key:value
+
+    def add(self, key, value):
+        self[key] = value
 

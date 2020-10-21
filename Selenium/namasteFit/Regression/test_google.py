@@ -41,7 +41,6 @@ class my_dictionary(dict):
 
 class Google(unittest.TestCase):
     def setUp(self):
-        print('Enter the gmailid and password')
         # self.email, self.password = map(str, input().split())
         self.email = input("Enter email: ")
         self.password = input('Input password: ')
