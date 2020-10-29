@@ -30,8 +30,8 @@ class my_dictionary(dict):
 
 class Google(unittest.TestCase):
     def setUp(self):
-        self.email = "nelly.nkonge108661@marwadiuniversity.ac.in"
-        self.password = "chr1stJESU5"
+        self.email = EMAIL_ACCOUNTS[0][0]
+        self.password = EMAIL_ACCOUNTS[0][1]
         # self.email = input("Enter email: ")
         # self.password = input('Input password: ')
         # self.password = getpass.getpass('Input password: ')
