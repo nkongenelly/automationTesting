@@ -1,10 +1,13 @@
 import getpass
+import io
+import json
 import sys
 import os
+import time
 import unittest
-from namasteFit.CommonFiles.crossBrowserSignin import CrossBrowserSignin
-from namasteFit.TestServer.Pages.loginPage import LoginPage
-
+from Selenium.namasteFit.CommonFiles.crossBrowserSignin import CrossBrowserSignin
+from Selenium.namasteFit.TestServer.Pages.loginPage import LoginPage
+from locustTests.venv.Lib.locust_tests.users import EMAIL_ACCOUNTS
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "...", "..."))
 # unittest.TestLoader.sortTestMethodsUsing = lambda _, x, y: cmp(y, x)
@@ -27,9 +30,10 @@ class my_dictionary(dict):
 
 class Google(unittest.TestCase):
     def setUp(self):
-        # self.email, self.password = map(str, input().split())
-        self.email = input("Enter email: ")
-        self.password = input('Input password: ')
+        self.email = "nelly.nkonge108661@marwadiuniversity.ac.in"
+        self.password = "chr1stJESU5"
+        # self.email = input("Enter email: ")
+        # self.password = input('Input password: ')
         # self.password = getpass.getpass('Input password: ')
         # self.ChromeTests()
         # self.firefoxTests()
@@ -65,10 +69,14 @@ class Google(unittest.TestCase):
             # webbrowser.open('https://'+ 'a.blazemeter.com' +'/api/v4/grid/sessions/' + self.driver.session_id + '/redirect/to/report')
 
             loginPage = LoginPage(driver)
-            loginPage.login(driver, driverOptions, self.email, self.password)
-            print(loginPage)
+            loginPage1 = loginPage.login(driver, driverOptions, self.email, self.password)
 
+            with open("userData.json", "w") as outfile:
+                json.dump(loginPage1, outfile)
+            print("Chrome cookies = ", loginPage1)
 
+            time.sleep(7)
+            driver.quit()
 
 
 

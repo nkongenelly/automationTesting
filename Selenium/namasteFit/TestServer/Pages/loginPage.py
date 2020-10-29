@@ -6,9 +6,9 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from namasteFit.TestServer.Locators.locators import Locators
-from namasteFit.CommonFiles.blazeArgs import BlazeArgs
-from namasteFit.CommonFiles.captureCookies import CaptureCookies
+from Selenium.namasteFit.TestServer.Locators.locators import Locators
+from Selenium.namasteFit.CommonFiles.blazeArgs import BlazeArgs
+from Selenium.namasteFit.CommonFiles.captureCookies import CaptureCookies
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".", "."))
 # from ..Locators.locators import Locators
@@ -66,7 +66,7 @@ class LoginPage():
             # Enter email and click next
             self.enterEmail(email)
             self.enterEmailNext()
-            time.sleep(20)
+            time.sleep(10)
             # start = timeit.timeit()
             # Enter password and click next
             self.enterPassword(password)
@@ -74,9 +74,9 @@ class LoginPage():
 
             # end = timeit.timeit()
 
-            time.sleep(0)
-            cookies = CaptureCookies(driver)
-            cookies.capture(driverName)
+            time.sleep(10)
+            # cookies = CaptureCookies(driver)
+            # cookies.capture(driverName)
             # self.landingPage(end, start, driver)
 
             loginURL = driver.current_url
@@ -86,34 +86,21 @@ class LoginPage():
             print(loginURL)
             # self.loginMessageResults(loginURL)
             result = ""
+            # "Get cookies"
+            cookies_list = driver.get_cookies()
+            cookies_dict = {}
+            for cookie in cookies_list:
+                cookies_dict[cookie['name']] = cookie['value']
+            print("COOKIES ARE: ")
+            print(cookies_dict)
+            return cookies_dict
 
-            blazeArgs = BlazeArgs()
-            result = blazeArgs.blazemeterArgsStart(driver, "'namaste.fit landing page'",
-                                          "landing message for this account is " + loginURL)
-        #     try:
-        #         if loginURL == Locators.testServer:
-        #             result = "YOU HAVE NO ACCESS TO THE STUDIO PLATFORM"
-        #             print(result)
-        #             blazeArgs.addArgs('passed', '')
-        #     except AssertionError as exc:
-        #         blazeArgs.addArgs('failed', '')
-        #     except BaseException as exc:
-        #         blazeArgs.addArgs('broken', '')
-        #     blazeArgs.blazemeterArgsStop()
-        #
-        # try:
-        #     if loginURL == Locators.testServer + "/home/studio":
-        #         result = "PLEASE PUBLISH YOUR STUDIO FIRST"
-        #         print(result)
-        #
-        #     elif loginURL == Locators.testServer + "/home/get-started":
-        #         result = "WELCOME BACK TO YOUR STUDIO PLATFORM"
-        #         print(result)
-
-            # driver.close()
-            # time.sleep(5)
-            message = driverName + "browser status message for this account is : " + result
-            return message
+            # blazeArgs = BlazeArgs()
+            # result = blazeArgs.blazemeterArgsStart(driver, "'namaste.fit landing page'",
+            #                               "landing message for this account is " + loginURL)
+            #
+            # message = driverName + "browser status message for this account is : " + result
+            # return cookies_dict
 
         except Exception as e:
             result = "LOGIN FAILED"

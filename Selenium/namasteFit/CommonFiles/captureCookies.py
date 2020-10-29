@@ -1,6 +1,6 @@
 import pickle
 import selenium.webdriver
-from namasteFit.TestServer.Locators.locators import Locators
+from Selenium.namasteFit.TestServer.Locators.locators import Locators
 
 
 class CaptureCookies():

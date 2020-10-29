@@ -1,7 +1,7 @@
 import sys
 import os
 from selenium import webdriver
-from namasteFit.TestServer.Locators.locators import Locators
+from Selenium.namasteFit.TestServer.Locators.locators import Locators
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import DesiredCapabilities
 from selenium.webdriver.support.ui import WebDriverWait

@@ -21,38 +21,38 @@ class MyUser(HttpUser):
     def get_my_studio(self):
         headers = {"set-cookie:": self.cookie}
         response = self.client.get(url="/api/studio/" + self.userId, cookies={"userData": self.userData})
-        jsonResponse = response.json().get('studio')
+        # jsonResponse = response.json().get('studio')
 
-        Responsee = response.json()
-        # print("Response status code:", response.content)
-        print("Response status code:", jsonResponse['domain'])
-        return jsonResponse['domain']
+        # Responsee = response.json()
+        print("Response status code:", response.content)
+        # print("Response status code:", jsonResponse['domain'])
+        # return jsonResponse['domain']
 
-    @task(1)
-    def get_specific_domain_studio(self):
-        self.domain = self.get_my_studio()
-        print('DOMAIN = ')
-        print(self.domain)
-        response = self.client.get(url="/api/studio/" + self.userId + "/" + self.domain,
-                                   cookies={"userData": self.userData})
-        print("Response status code:", response.status_code)
-
-    @task(5)
-    def edit_my_studio(self):
-        self.domain = self.get_my_studio()
-        response = self.client.put(url="/api/studio/" + self.userId,
-                                   cookies={"userData": self.userData},
-                                   data={"about": "Yoga lifestyle",
-                                         "city": "",
-                                         "country": "",
-                                         "cover_photo_url": "https://namastedotfitstaging-public.s3.ap-south-1.amazonaws.com/yogacover/maryjoy-caballero-Um3NiahMQPY-unsplash.jpg",
-                                         "domain": self.domain,
-                                         "facebook_link": "",
-                                         "insta_link": "",
-                                         "name": "Yoga lifestyle",
-                                         "profile_photo_url": "",
-                                         "state": "",
-                                         "status": "active",
-                                         "website_link": "https://www.google.com",
-                                         "youtube_link": ""})
-        print("Response status code:", response.status_code)
+    # @task(1)
+    # def get_specific_domain_studio(self):
+    #     self.domain = self.get_my_studio()
+    #     print('DOMAIN = ')
+    #     print(self.domain)
+    #     response = self.client.get(url="/api/studio/" + self.userId + "/" + self.domain,
+    #                                cookies={"userData": self.userData})
+    #     print("Response status code:", response.status_code)
+    #
+    # @task(5)
+    # def edit_my_studio(self):
+    #     self.domain = self.get_my_studio()
+    #     response = self.client.put(url="/api/studio/" + self.userId,
+    #                                cookies={"userData": self.userData},
+    #                                data={"about": "Yoga lifestyle",
+    #                                      "city": "",
+    #                                      "country": "",
+    #                                      "cover_photo_url": "https://namastedotfitstaging-public.s3.ap-south-1.amazonaws.com/yogacover/maryjoy-caballero-Um3NiahMQPY-unsplash.jpg",
+    #                                      "domain": self.domain,
+    #                                      "facebook_link": "",
+    #                                      "insta_link": "",
+    #                                      "name": "Yoga lifestyle",
+    #                                      "profile_photo_url": "",
+    #                                      "state": "",
+    #                                      "status": "active",
+    #                                      "website_link": "https://www.google.com",
+    #                                      "youtube_link": ""})
+    #     print("Response status code:", response.status_code)

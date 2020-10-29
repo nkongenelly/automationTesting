@@ -3,8 +3,8 @@ import os
 import unittest
 import time
 from selenium import webdriver
-from namasteFit.TestServer.Locators.locators import Locators
-from namasteFit.CommonFiles.captureCookies import CaptureCookies
+from Selenium.namasteFit.TestServer.Locators.locators import Locators
+from Selenium.namasteFit.CommonFiles.captureCookies import CaptureCookies
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "...", "..."))
 
